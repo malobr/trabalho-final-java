@@ -52,27 +52,8 @@ public  abstract class Aluno implements Casas{
     public String toString() {
         //System.out.println(getCasa());
         System.out.println("---Aluno---");
-        return super.toString() + "\nNome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo + "\nStatus de Sangue: " + statusDeSangue;
+        return super.toString() + "\nNome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo + "\nStatus de Sangue: " ;
     }
-
-    @Override
-    public String Sonserina(){
-        return "\nParabens " + getNome() + " Voce teve a sorte de entrar para a melhor casa do mundo, a SONSERINA!!";
-    }
-
-    @Override
-    public String Grifinoria(){
-        return "\nParabens " + getNome() + " Voce foi selecionado para a Grifinoria";
-    }
-
-    @Override
-    public String Corvinal(){
-        return "\nParabens " + getNome() + " Voce foi selecionado para a Corvinal";
-    }
-
-    @Override
-    public String LufaLufa(){
-        return "\nParabens " + getNome() + " Voce foi selecionado para a LufaLufa";
 
 
 }
