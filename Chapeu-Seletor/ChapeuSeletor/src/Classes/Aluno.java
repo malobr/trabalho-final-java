@@ -5,26 +5,36 @@ import Interfaces.Casas;
 public  abstract class Aluno implements Casas{
 
     private String nome;
+    private String matricula;
     private int idade;
-    private boolean sexo;
+    private String sexo;
     private String statusDeSangue;
     
     
     public Aluno(){}
     
-    public Aluno(String nome, int idade, boolean sexo, String statusDeSangue) {
+    public Aluno(String nome, String matricula, int idade, String sexo, String statusDeSangue) {
         this.nome = nome;
+        this.matricula = matricula;
         this.idade = idade;
         this.sexo = sexo;
         this.statusDeSangue = statusDeSangue;
     }
-
-
+    
+    
     public String getNome() {
         return nome;
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public int getIdade() {
@@ -34,10 +44,10 @@ public  abstract class Aluno implements Casas{
         this.idade = idade;
     }
 
-    public boolean isSexo() {
+    public String getSexo() {
         return sexo;
     }
-    public void setSexo(boolean sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -52,8 +62,9 @@ public  abstract class Aluno implements Casas{
     public String toString() {
         //System.out.println(getCasa());
         System.out.println("---Aluno---");
-        return super.toString() + "\nNome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo + "\nStatus de Sangue: " ;
+        return super.toString() + "\nNome: " + nome + "\nMatricula: " + matricula + "\nIdade: " + idade + "\nSexo: " + sexo + "\nStatus de Sangue: " ;
     }
+
 
 
 }

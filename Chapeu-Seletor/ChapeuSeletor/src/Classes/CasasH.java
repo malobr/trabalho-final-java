@@ -22,7 +22,5 @@ public abstract class CasasH   extends Aluno implements Casas{
     @Override
     public String LufaLufa(){
         return "\nParabens " + getNome() + " Voce foi selecionado para a LufaLufa";
-
-
-}
+    }
 }
