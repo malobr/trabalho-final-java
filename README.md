@@ -29,9 +29,15 @@ O projeto contém as seguintes classes principais:
 ### Interface Interfaces
 - **Casas**: Interface ou classe que define as casas de Hogwarts.
 
-## Uso
+## Como Utilizar o Sistema
 
-### Executar o Sistema
+1. Clone o repositório para sua máquina local:
+
+```bash
+https://github.com/malobr/trabalho-final-java.git
+```
+
+### Abra e Execute o Sistema
 
 Compile e execute a classe `Sistema` para iniciar o programa.
 
