@@ -16,7 +16,7 @@ O projeto contém as seguintes classes principais:
 
 
 ### Estrutura Principal do Projeto
-- **Principal**: A classe Principal que roda o sietema.
+- **Principal**: A classe Principal que roda o sistema.
 - **Sistema**: A classe que contém o menu e a lógica para interação com o usuário.
 
 ### Package Classes
@@ -55,14 +55,5 @@ Selecione uma opção do menu para realizar uma ação:
 - Java JDK 8 ou superior
 - IDE para desenvolvimento Java (opcional, mas recomendado)
 
-## Como Contribuir
 
-1. Fork este repositório.
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`).
-3. Faça commit de suas mudanças (`git commit -m 'Add some AmazingFeature'`).
-4. Faça push para a branch (`git push origin feature/AmazingFeature`).
-5. Abra um Pull Request.
 
-## Licença
-
-Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
