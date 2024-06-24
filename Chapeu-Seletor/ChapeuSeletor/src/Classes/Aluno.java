@@ -2,69 +2,51 @@ package Classes;
 
 import Interfaces.Casas;
 
-public  abstract class Aluno implements Casas{
-
+public class Aluno {
     private String nome;
     private String matricula;
     private int idade;
     private String sexo;
     private String statusDeSangue;
-    
-    
-    public Aluno(){}
-    
-    public Aluno(String nome, String matricula, int idade, String sexo, String statusDeSangue) {
+    private Casas casa;
+
+    public Aluno(String nome, String matricula, int idade, String sexo, String statusDeSangue, Casas casa) {
         this.nome = nome;
         this.matricula = matricula;
         this.idade = idade;
         this.sexo = sexo;
         this.statusDeSangue = statusDeSangue;
+        this.casa = casa;
     }
-    
-    
+
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
+
     public String getMatricula() {
         return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 
     public int getIdade() {
         return idade;
     }
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 
     public String getSexo() {
         return sexo;
-    }
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
     }
 
     public String getStatusDeSangue() {
         return statusDeSangue;
     }
-    public void setStatusDeSangue(String statusDeSangue) {
-        this.statusDeSangue = statusDeSangue;
+
+    public Casas getCasa() {
+        return casa;
     }
 
     @Override
     public String toString() {
-        //System.out.println(getCasa());
-        System.out.println("---Aluno---");
-        return super.toString() + "\nNome: " + nome + "\nMatricula: " + matricula + "\nIdade: " + idade + "\nSexo: " + sexo + "\nStatus de Sangue: " ;
+        System.out.println("-- Aluno(A) de Hogwarts --");
+        return " Nome: " + nome + "\n Matrícula: " + matricula + "\n Idade: " + idade + "\n Sexo: " + sexo
+                + "\n Status de Sangue: " + statusDeSangue + "\n Casa: " + casa.getNome() + "\n" + casa.getDesenho();
     }
-
-
-
 }

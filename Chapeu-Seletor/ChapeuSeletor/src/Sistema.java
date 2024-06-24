@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
-import Classes.Aluno;
-import Classes.Cadastro;
-import Classes.CasasH;
-import Classes.Console;
+import Classes.*;
 
 import Interfaces.Casas;
+
+import Casas.Grifinoria;
+import Casas.Sonserina;
+import Casas.Corvinal;
+import Casas.LufaLufa;
 
 public class Sistema {
 
@@ -52,27 +54,27 @@ public class Sistema {
         int corvinal = 0;
         int lufalufa = 0;
 
-        System.out.println("Bem-vindo ao Chapéu Seletor de Hogwarts!");
-        System.out.println("Responda às seguintes perguntas para descobrir sua casa.");
+        System.out.println("\nBem-vindo ao Chapéu Seletor de Hogwarts!");
+        System.out.println("\nResponda às seguintes perguntas para descobrir sua casa.");
 
-        System.out.println("Informe seu nome:");
+        System.out.println("\nInforme seu nome:");
         String nome = scanner.nextLine();
 
-        System.out.println("Informe sua matrícula:");
+        System.out.println("\nInforme sua matrícula:");
         String matricula = scanner.nextLine();
 
-        System.out.println("Informe sua idade:");
+        System.out.println("\nInforme sua idade:");
         int idade = scanner.nextInt();
         scanner.nextLine(); // Consumir a nova linha restante
 
-        System.out.println("Informe seu sexo:");
+        System.out.println("\nInforme seu sexo:");
         String sexo = scanner.nextLine();
 
-        System.out.println("Informe seu Status de Sangue (Puro ou Trouxa):");
+        System.out.println("\nInforme seu Status de Sangue (Puro ou Trouxa):");
         String statusDeSangue = scanner.nextLine();
 
         // Pergunta 1
-        System.out.println("Pergunta 1: Qual dessas qualidades você mais valoriza?");
+        System.out.println("\nPergunta 1: Qual dessas qualidades você mais valoriza?");
         System.out.println("1. Coragem");
         System.out.println("2. Ambição");
         System.out.println("3. Inteligência");
@@ -94,7 +96,7 @@ public class Sistema {
         }
 
         // Pergunta 2
-        System.out.println("Pergunta 2: Qual dessas criaturas mágicas você prefere?");
+        System.out.println("\nPergunta 2: Qual dessas criaturas mágicas você prefere?");
         System.out.println("1. Fênix");
         System.out.println("2. Serpente");
         System.out.println("3. Coruja");
@@ -116,7 +118,7 @@ public class Sistema {
         }
 
         // Pergunta 3
-        System.out.println("Pergunta 3: Qual dessas matérias você mais gosta?");
+        System.out.println("\nPergunta 3: Qual dessas matérias você mais gosta?");
         System.out.println("1. Defesa Contra as Artes das Trevas");
         System.out.println("2. Poções");
         System.out.println("3. Feitiços");
@@ -138,7 +140,7 @@ public class Sistema {
         }
 
         // Pergunta 4
-        System.out.println("Pergunta 4: Qual desses lugares você preferiria explorar?");
+        System.out.println("\nPergunta 4: Qual desses lugares você preferiria explorar?");
         System.out.println("1. A Floresta Proibida");
         System.out.println("2. As Masmorras");
         System.out.println("3. A Torre da Corvinal");
@@ -160,7 +162,7 @@ public class Sistema {
         }
 
         // Pergunta 5
-        System.out.println("Pergunta 5: Qual dessas palavras melhor descreve você?");
+        System.out.println("\nPergunta 5: Qual dessas palavras melhor descreve você?");
         System.out.println("1. Destemido");
         System.out.println("2. Astuto");
         System.out.println("3. Sábio");
@@ -182,46 +184,73 @@ public class Sistema {
         }
 
         // Determinar a casa com mais pontos
-        String casa;
+        Casas casa;
         if (grifinoria >= sonserina && grifinoria >= corvinal && grifinoria >= lufalufa) {
-            casa = "Grifinória";
-            Casas.Grifinoria();
+            casa = new Grifinoria();
         } else if (sonserina >= grifinoria && sonserina >= corvinal && sonserina >= lufalufa) {
-            casa = "Sonserina";
-            Casas.Sonserina();
+            casa = new Sonserina();
         } else if (corvinal >= grifinoria && corvinal >= sonserina && corvinal >= lufalufa) {
-            casa = "Corvinal";
-            Casas.Corvinal();
+            casa = new Corvinal();
         } else {
-            casa = "Lufa-Lufa";
-            Casas.LufaLufa();
+            casa = new LufaLufa();
         }
 
         Aluno aluno = new Aluno(nome, matricula, idade, sexo, statusDeSangue, casa);
         Cadastro.cadastrar(aluno);
     }
 
-    public static void removerAluno() {
-        // Implementar lógica para remover aluno
+    private static void removerAluno(){
+        System.out.println("\nInforme a Matricula do Aluno a ser excluído:");
+        String matricula = scanner.nextLine();
+        for (Aluno aluno : Cadastro.getListaAlunos()) {
+            if (aluno.getMatricula().equals(matricula)) {
+                Cadastro.getListaAlunos().remove(aluno);
+                System.out.println("\nAluno excluído com sucesso!");
+                enterParaSeguir();
+                return;
+            }
+        }
+        System.out.println("\nAluno não encontrado.");
     }
 
     public static void exibirAluno() {
-        // Implementar lógica para exibir aluno
+        System.out.println("\nInforme a matrícula do aluno:");
+        String matricula = scanner.nextLine();
+        Aluno aluno = Cadastro.buscarPorMatricula(matricula);
+        if (aluno != null) {
+            System.out.println(aluno);
+        } else {
+            System.out.println("\nAluno não encontrado.");
+        }
     }
 
-    public static void listarAlunos() {
-        // Implementar lógica para listar alunos
-    }
+    private static void listarAlunos() {
+        if (Cadastro.getListaAlunos().isEmpty()) {
+            System.out.println("\nNão há Alunos Matriculados.");
+        } else {
+            System.out.println("\nLista de Alunos:");
+            for (Aluno aluno : Cadastro.getListaAlunos()) {
+                System.out.println(aluno.toString());
+
+            }
+        }
+            enterParaSeguir();
+        }
 
     public static void mensagemDeSaida() {
-        System.out.println("Obrigado por utilizar o Chapéu Seletor de Hogwarts!");
+        System.out.println("\nObrigado por utilizar o Chapéu Seletor de Hogwarts!");
     }
 
     public static void menu() {
         System.out.println("Bem-vindo ao sistema de seleção de casas de Hogwarts!");
     }
 
-   //Metodo que e chamado na main para executar o programa...
+    public static void enterParaSeguir() {
+        System.out.println("\nClique em qualquer tecla para continuar");
+        scanner.nextLine();
+    }
+
+    // Método que é chamado na main para executar o programa...
     public static void executar() {
         int op;
         do {
@@ -231,4 +260,5 @@ public class Sistema {
             verificarOpcao(op);
         } while (op != 0);
     }
+
 }
