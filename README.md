@@ -25,9 +25,15 @@ O projeto contém as seguintes classes principais:
 - **CasasH**: Representa as diferentes casas de Hogwarts.
 - **Console**: Fornece métodos para interação no console.
 
+### Package Casas
+- **Grifinoria.java**: Classes usadas Para manipular e definir os metodos Da Interface...
+- **Sonserina.java**: Gerencia a casa e o escudo da Sonserina.
+- **Corvinal.java**: Gerencia a casa e o escudo da Corvinal.
+- **LufaLufa.java**: Gerencia a casa e o escudo da Lufa Lufa.
+
 
 ### Interface Interfaces
-- **Casas**: Interface ou classe que define as casas de Hogwarts.
+- **Casas**: Interface ou classe que define as casas e escudos(Desenhos das Casas) de Hogwarts.
 
 ## Como Utilizar o Sistema
 

@@ -205,7 +205,7 @@ public class Sistema {
         for (Aluno aluno : Cadastro.getListaAlunos()) {
             if (aluno.getMatricula().equals(matricula)) {
                 Cadastro.getListaAlunos().remove(aluno);
-                System.out.println("\nAluno excluído com sucesso!");
+                System.out.println("\nAluno excluído com sucesso!\n Avada Kadavra!!!!!");
                 enterParaSeguir();
                 return;
             }
