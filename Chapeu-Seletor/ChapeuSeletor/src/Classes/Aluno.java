@@ -10,6 +10,8 @@ public class Aluno {
     private String statusDeSangue;
     private Casas casa;
 
+    public Aluno(){};
+
     public Aluno(String nome, String matricula, int idade, String sexo, String statusDeSangue, Casas casa) {
         this.nome = nome;
         this.matricula = matricula;
@@ -49,4 +51,19 @@ public class Aluno {
         return " Nome: " + nome + "\n Matrícula: " + matricula + "\n Idade: " + idade + "\n Sexo: " + sexo
                 + "\n Status de Sangue: " + statusDeSangue + "\n Casa: " + casa.getNome() + "\n" + casa.getDesenho();
     }
+
+
+    public void fromString(String linha) {
+
+        String[] partes = linha.split(", ");
+
+    
+    nome = partes[0].split("=")[1];
+    matricula = partes[1].split("=")[1];
+    idade = Integer.parseInt(partes[2].split("=")[1]);
+    sexo = partes[3].split("=")[1];
+    statusDeSangue = partes[4].split("=")[1];
+    
+    }
+
 }

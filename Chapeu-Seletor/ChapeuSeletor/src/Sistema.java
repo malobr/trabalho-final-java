@@ -20,6 +20,7 @@ public class Sistema {
         System.out.println("[2] Remover Aluno");
         System.out.println("[3] Exibir Aluno");
         System.out.println("[4] Listar todos os Alunos");
+        System.out.println("[5] Atualizar Aluno");
         System.out.println("[0] Sair...");
         System.out.print("\nInforme uma opção: ");
     }
@@ -228,7 +229,7 @@ public class Sistema {
         if (Cadastro.getListaAlunos().isEmpty()) {
             System.out.println("\nNão há Alunos Matriculados.");
         } else {
-            System.out.println("\nLista de Alunos:");
+            System.out.println("\nLista de Alunos:\n");
             for (Aluno aluno : Cadastro.getListaAlunos()) {
                 System.out.println(aluno.toString());
 
@@ -237,12 +238,66 @@ public class Sistema {
             enterParaSeguir();
         }
 
-    public static void mensagemDeSaida() {
-        System.out.println("\nObrigado por utilizar o Chapéu Seletor de Hogwarts!");
-    }
+        /*private static void atualizar() {
+
+            System.out.println("\nAtualizar  dados do Aluno");
+    
+            int matricula = Console.lerInt("Informe a matricula do aluno:");
+    
+            try {
+    
+                Aluno tempAluno = Cadastro.buscarPorMatricula(matricula);
+    
+                String marca = Console.lerString("Informe a nova marca:");
+                String nome = Console.lerString("Informe o novo nome:");
+                String tipo = Console.lerString("Informe o novo tipo:");
+    
+                tempRelogio.setMarca(marca);
+                tempRelogio.setNome(nome);
+                tempRelogio.setTipo(tipo);
+    
+                Cadastro.atualizarRelogio(tempAluno);
+    
+                System.out.println("\nAluno(A) " + matricula + " atualizado(A) com sucesso!");
+    
+            } catch (Exception e) {
+    
+                System.out.println(e.getMessage());
+            }
+    
+        }*/
+
+        private static void mensagemDeSaida(){
+            System.out.println("\nO Chapeu Seletor cansou...(Programa Finalizado)");
+            System.out.println("\n");
+            System.out.println("─▄▀─▄▀         JJJJJJJ     AAAAA     V       V      AAAAA       ─▄▀─▄▀    ");
+            System.out.println("──▀──▀             J      A     A     V     V      A     A      ──▀──▀    ");
+            System.out.println("█▀▀▀▀▀█▄           J      AAAAAAA      V   V       AAAAAAA      █▀▀▀▀▀█▄  ");
+            System.out.println("█░░░░░█─█    J     J      A     A       V V        A     A      █░░░░░█─█ ");
+            System.out.println("▀▄▄▄▄▄▀▀      JJJJJ       A     A        V         A     A      ▀▄▄▄▄▄▀▀  ");
+            System.out.println("");
+            System.out.println("──────--▄▀▀▄");
+            System.out.println("──────▄▀▄░▀▄");
+            System.out.println("──────▄▀▄░░░░▀▄");
+            System.out.println("──────▄▀▄░░░░░░▀▄");
+            System.out.println("─────▄█░░░░░░░░░█▄");
+            System.out.println("─▄▄──█░░░░░░░░░░░█──▄▄");
+            System.out.println("█▄▄██░░▀░░░░░░░░▀░░██▄▄█");
+            System.out.println("-------------------------");
+            
+            }
 
     public static void menu() {
-        System.out.println("Bem-vindo ao sistema de seleção de casas de Hogwarts!");
+        System.out.println("──────--▄▀▀▄");
+        System.out.println("──────▄▀▄░▀▄");
+        System.out.println("──────▄▀▄░░░░▀▄");
+        System.out.println("──────▄▀▄░░░░░░▀▄");
+        System.out.println("─────▄█░░░░░░░░░█▄");
+        System.out.println("─▄▄──█░░░░░░░░░░░█── ▄▄");
+        System.out.println("█▄▄██░░▀░░░░░░░░▀░░██▄▄█");
+        System.out.println("-------------------------");
+        System.out.println("Bem-vindo ao Chapeu Seletor de Hogwarts!");
+
     }
 
     public static void enterParaSeguir() {

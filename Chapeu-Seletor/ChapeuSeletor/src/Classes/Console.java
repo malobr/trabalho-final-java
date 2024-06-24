@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Console {
 
-    // private: apenas esta classe enxerga o "leitor"
-    // static: esta classe gerencia o "leitor"
     private static Scanner leitor = new Scanner(System.in);
 
     // método para ler e retornar um valor String:

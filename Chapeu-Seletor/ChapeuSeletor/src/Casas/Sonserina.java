@@ -12,8 +12,13 @@ public class Sonserina implements Casas {
 
     @Override
     public String getDesenho() {
-        return "Desenho da Sonserina"; // Desenho específico da Sonserina
+        return "▄▄▀█▄───▄───────▄\n" +
+               "▀▀▀██──███─────███\n" +
+                "░▄██▀░█████░░░█████░░\n" +
+                "███▀▄███░███░███░███░▄\n" +
+                "▀█████▀░░░▀███▀░░░▀██▀\n";
+        }
     }
-}
+
 
 
