@@ -37,6 +37,10 @@ O projeto contém as seguintes classes principais:
 ### Interface Interfaces
 - **Casas**: Interface ou classe que cria o nome e o desenho das casas de Hogwarts.
 
+## Uso de IAs
+
+Para fazer o sistema eu utilizei as IAs majoritariamente para tirar duvidas sobre erros no codigo, e principalmente para introduzir os desenhos no codigo.. alguns como `return` e outros como `System.out` .
+
 ## Como Utilizar o Sistema
 
 1. Clone o repositório para sua máquina local:
