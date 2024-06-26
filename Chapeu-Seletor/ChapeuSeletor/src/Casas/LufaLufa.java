@@ -11,6 +11,14 @@ public class LufaLufa implements Casas {
 
     @Override
     public String getDesenho() {
-        return "Desenho da Lufa-Lufa"; // Desenho específico da Lufa-Lufa
+        return "                 \n" + 
+             
+            "    (`-()_.-=-. \n" + 
+             "    /00  ,     , \\  \n" + 
+           "   =(o_/= //_  (  /======`  \n"+
+           "     n`` n`  nn` \n";
+        
+        
+        // Desenho específico da Lufa-Lufa
     }
 }

@@ -11,7 +11,13 @@ public class Corvinal implements Casas {
 
     @Override
     public String getDesenho() {
-        return " "; // Desenho específico da Corvinal
-    }
+        return "                __\n" +
+        "               /'{>\n" +
+        "           ____) (____\n" +
+        "         //'--;   ;--'\\\\\n" +
+        "        ///////\\_/\\\\\\\\\\\\\n" +
+        "                m m";
+}// Desenho específico da Corvinal
+    
 
 }

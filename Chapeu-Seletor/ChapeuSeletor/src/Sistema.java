@@ -296,6 +296,16 @@ public class Sistema {
         System.out.println("█░░░░░█─█    J     J      A     A       V V        A     A      █░░░░░█─█ ");
         System.out.println("▀▄▄▄▄▄▀▀      JJJJJ       A     A        V         A     A      ▀▄▄▄▄▄▀▀  ");
         System.out.println("");
+        System.out.println("          ");
+        System.out.println("        /フ---フ");
+        System.out.println("       |  _  _ |");
+        System.out.println("      /` ミ_x )");
+        System.out.println("     /      |");
+        System.out.println("    /  ヽ   ﾉ");
+        System.out.println("    │  | | |");
+        System.out.println(" ／￣    | | |");
+        System.out.println(" | (￣ヽ__ヽ_)__)");
+        System.out.println(" (__二つ");
     }
 
     private static void chapeuSeletor(){
