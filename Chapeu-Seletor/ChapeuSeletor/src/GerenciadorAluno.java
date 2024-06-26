@@ -90,12 +90,12 @@ public abstract class GerenciadorAluno {
              BufferedWriter bWriter = new BufferedWriter(fWriter)) {
 
             for (Aluno aluno : listaAlunos) {
-                bWriter.write(aluno.getNome() + ";" +
-                        aluno.getMatricula() + ";" +
-                        aluno.getIdade() + ";" +
-                        aluno.getSexo() + ";" +
-                        aluno.getStatusDeSangue() + ";" +
-                        aluno.getCasa().getClass().getSimpleName() + "\n");
+                bWriter.write(aluno.getNome() + ";\n" +
+                        aluno.getMatricula() + ";\n" +
+                        aluno.getIdade() + ";\n" +
+                        aluno.getSexo() + ";\n" +
+                        aluno.getStatusDeSangue() + ";\n" +
+                        aluno.getCasa().getClass().getSimpleName() + "\n-------------\n");
             }
         }
     }

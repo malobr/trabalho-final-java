@@ -10,6 +10,10 @@ public class Grifinoria implements Casas {
 
     @Override
     public String getDesenho() {
-        return "Desenho da Grifinória"; // Adicione o desenho específico
+        return   "──▄▀▀▀▀▀───▄█▀▀▀█▄\n" +
+                "──▐▄▄▄▄▄▄▄▄██▌▀▄▀▐██\n" +
+                "──▐▒▒▒▒▒▒▒▒███▌▀▐███\n" +
+                "───▌▒▓▒▒▒▒▓▒██▌▀▐██\n" +
+                " ───▌▓▐▀▀▀▀▌▓─▀▀";
     }
 }

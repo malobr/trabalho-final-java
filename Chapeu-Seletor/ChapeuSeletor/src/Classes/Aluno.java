@@ -72,14 +72,16 @@ public class Aluno {
     // Sobrescrever o método toString para representação textual do aluno
     @Override
     public String toString() {
-        return matricula + "," + nome + "," + idade + "," + sexo + "," + statusDeSangue + "," + casa;
+        System.out.println("\n-- Aluno(A) de Hogwarts --");
+        return " Nome: " + nome + "," + "\n Matrícula: " + matricula + "," + "\n Idade: " + idade + "," +"\n Sexo: " + sexo
+                + "," + "\n Status de Sangue: " + statusDeSangue + "," + "\n Casa: " + casa.getNome() + "," + "\n\n" + casa.getDesenho();
     }
 
     // Método para inicializar os dados do aluno a partir de uma string formatada
     public void fromString(String str) {
         String[] parts = str.split(",");
-        this.matricula = parts[0];
-        this.nome = parts[1];
+        this.nome = parts[0];
+        this.matricula = parts[1];
         this.idade = Integer.parseInt(parts[2]);
         this.sexo = parts[3];
         this.statusDeSangue = parts[4];

@@ -11,7 +11,7 @@ public class Corvinal implements Casas {
 
     @Override
     public String getDesenho() {
-        return "Desenho da Corvinal"; // Desenho específico da Corvinal
+        return " "; // Desenho específico da Corvinal
     }
 
 }
