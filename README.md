@@ -35,7 +35,7 @@ O projeto contém as seguintes classes principais:
 
 
 ### Interface Interfaces
-- **Casas**: Interface ou classe que define as casas e escudos(Desenhos das Casas) de Hogwarts.
+- **Casas**: Interface ou classe que cria o nome e o desenho das casas de Hogwarts.
 
 ## Como Utilizar o Sistema
 
