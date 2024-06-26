@@ -8,6 +8,7 @@ Este é um sistema em Java para cadastrar alunos e determinar a qual casa de Hog
 - **Remover Aluno**: Permite a remoção de alunos do sistema.
 - **Exibir Aluno**: Permite visualizar as informações de um aluno específico.
 - **Listar Alunos**: Lista todos os alunos cadastrados no sistema.
+- **Alterar**: Altera as informacoes do Aluno(Nome, Idade, Status de Sangue).
 - **Determinação de Casas**: Atribui uma casa de Hogwarts ao aluno com base nas respostas de um questionário.(Fica junto ao cadatro do Aluno)..
 
 ## Estrutura do Projeto
@@ -18,15 +19,16 @@ O projeto contém as seguintes classes principais:
 ### Estrutura Principal do Projeto
 - **Principal**: A classe Principal que roda o sistema.
 - **Sistema**: A classe que contém o menu e a lógica para interação com o usuário.
+- **GerenciadorAluno**: Classe responsavel por salvar e apresentar as informacoes doa Alunos em .txt.
 
 ### Package Classes
 - **Aluno**: Representa um aluno, contendo informações como nome, matrícula, idade, sexo, status de sangue e casa.
 - **Cadastro**: Gerencia o cadastro de alunos.
-- **CasasH**: Representa as diferentes casas de Hogwarts.
 - **Console**: Fornece métodos para interação no console.
 
 ### Package Casas
-- **Grifinoria.java**: Classes usadas Para manipular e definir os metodos Da Interface...
+`Classes usadas Para manipular e definir os metodos Da Interface...`
+- **Grifinoria.java**: Gerencia a casa e o escudo da Grifinoria.
 - **Sonserina.java**: Gerencia a casa e o escudo da Sonserina.
 - **Corvinal.java**: Gerencia a casa e o escudo da Corvinal.
 - **LufaLufa.java**: Gerencia a casa e o escudo da Lufa Lufa.
@@ -54,6 +56,7 @@ Selecione uma opção do menu para realizar uma ação:
 - `[2] Remover Aluno`
 - `[3] Exibir Aluno`
 - `[4] Listar todos os Alunos`
+- `[5] Atualizar Aluno`
 - `[0] Sair`
 
 ### Cadastrar um Novo Aluno
