@@ -3,67 +3,87 @@ package Classes;
 import Interfaces.Casas;
 
 public class Aluno {
-    private String nome;
     private String matricula;
+    private String nome;
     private int idade;
     private String sexo;
     private String statusDeSangue;
-    private Casas casa;
+    private Casas casa; // Adicionar atributo para a casa do aluno
 
-    public Aluno(){};
+    public Aluno(){
 
-    public Aluno(String nome, String matricula, int idade, String sexo, String statusDeSangue, Casas casa) {
-        this.nome = nome;
+    }
+    // Construtor
+    public Aluno(String matricula, String nome, int idade, String sexo, String statusDeSangue, Casas casa) {
         this.matricula = matricula;
+        this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
         this.statusDeSangue = statusDeSangue;
-        this.casa = casa;
+        this.casa = casa; // Atribuir a casa passada como parâmetro
+    }
+
+    // Getters e setters
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getIdade() {
         return idade;
     }
 
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public String getSexo() {
         return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getStatusDeSangue() {
         return statusDeSangue;
     }
 
-    public Casas getCasa() {
-        return casa;
+    public void setStatusDeSangue(String statusDeSangue) {
+        this.statusDeSangue = statusDeSangue;
     }
 
+    // Método para retornar a casa do aluno
+    public Casas getCasa() {
+        return this.casa;
+    }
+
+    // Sobrescrever o método toString para representação textual do aluno
     @Override
     public String toString() {
-        System.out.println("-- Aluno(A) de Hogwarts --");
-        return " Nome: " + nome + "\n Matrícula: " + matricula + "\n Idade: " + idade + "\n Sexo: " + sexo
-                + "\n Status de Sangue: " + statusDeSangue + "\n Casa: " + casa.getNome() + "\n" + casa.getDesenho();
+        return matricula + "," + nome + "," + idade + "," + sexo + "," + statusDeSangue + "," + casa;
     }
 
-
-    public void fromString(String linha) {
-
-        String[] partes = linha.split(", ");
-
-    
-    nome = partes[0].split("=")[1];
-    matricula = partes[1].split("=")[1];
-    idade = Integer.parseInt(partes[2].split("=")[1]);
-    sexo = partes[3].split("=")[1];
-    statusDeSangue = partes[4].split("=")[1];
-    
+    // Método para inicializar os dados do aluno a partir de uma string formatada
+    public void fromString(String str) {
+        String[] parts = str.split(",");
+        this.matricula = parts[0];
+        this.nome = parts[1];
+        this.idade = Integer.parseInt(parts[2]);
+        this.sexo = parts[3];
+        this.statusDeSangue = parts[4];
+        // Aqui você precisa atribuir a casa corretamente, dependendo da implementação da interface Casas
+        // Exemplo: this.casa = new CasaXXX(parts[5]); // Ajuste conforme a implementação de Casas
     }
-
 }

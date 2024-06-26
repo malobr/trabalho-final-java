@@ -1,151 +1,160 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Casas.Corvinal;
+import Casas.Grifinoria;
+import Casas.LufaLufa;
+import Casas.Sonserina;
 import Classes.Aluno;
+import Interfaces.Casas;
 
 public abstract class GerenciadorAluno {
 
     private static final String ARQUIVO = "alunos.txt";
     private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
 
-    public static void salvarAluno(Aluno aluno) throws IOException {
-
-        try (FileWriter fWriter = new FileWriter(ARQUIVO, true);
-                BufferedWriter bWriter = new BufferedWriter(fWriter)) {
-
-            bWriter.write(aluno.toString() + "\n");
-
+    static {
+        criarArquivoSeNaoExistir();
+        try {
+            lerArquivo();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
 
-    public static ArrayList<Aluno> getListaAlunos() throws Exception {
+    public static void salvarAluno(Aluno aluno) throws IOException {
+        listaAlunos.add(aluno);
+        atualizarArquivo();
+    }
 
-        verirficarListaVazia();
+    public static ArrayList<Aluno> getListaAlunos() {
         return listaAlunos;
     }
 
     public static void lerArquivo() throws IOException {
-
         listaAlunos.clear();
 
-        try (FileReader fReader = new FileReader(ARQUIVO);
-                BufferedReader bReader = new BufferedReader(fReader)) {
+        File arquivo = new File(ARQUIVO);
+        if (arquivo.exists()) {
+            try (FileReader fReader = new FileReader(arquivo);
+                 BufferedReader bReader = new BufferedReader(fReader)) {
 
-            String linha;
+                String linha;
+                while ((linha = bReader.readLine()) != null) {
+                    String[] dados = linha.split(";");
+                    if (dados.length == 6) {
+                        String nome = dados[0];
+                        String matricula = dados[1];
+                        int idade = Integer.parseInt(dados[2]);
+                        String sexo = dados[3];
+                        String statusDeSangue = dados[4];
+                        String casa = dados[5];
 
-            while ((linha = bReader.readLine()) != null) {
+                        // Aqui você precisa ajustar para criar a instância correta da casa (Grifinoria, Sonserina, etc.)
+                        Casas casaDoAluno = null;
+                        switch (casa) {
+                            case "Grifinoria":
+                                casaDoAluno = new Grifinoria();
+                                break;
+                            case "Sonserina":
+                                casaDoAluno = new Sonserina();
+                                break;
+                            case "Corvinal":
+                                casaDoAluno = new Corvinal();
+                                break;
+                            case "LufaLufa":
+                                casaDoAluno = new LufaLufa();
+                                break;
+                            default:
+                                System.out.println("Casa não reconhecida.");
+                                break;
+                        }
 
-                Aluno tempAluno = new Aluno();
-
-                tempAluno.fromString(linha);
-
-                listaAlunos.add(tempRelogio);
-
+                        Aluno tempAluno = new Aluno(nome, matricula, idade, sexo, statusDeSangue, casaDoAluno);
+                        listaAlunos.add(tempAluno);
+                    } else {
+                        System.out.println("Formato de linha inválido: " + linha);
+                    }
+                }
             }
-
         }
-
-    }
-
-    private static void verirficarListaVazia() throws Exception {
-
-        if (listaRelogios.isEmpty()) {
-
-            throw new Exception("\nATENÇÃO: Não há relógios cadastrados");
-        }
-    }
-
-    public static Relogio buscarRelogio(int codigo) throws Exception {
-
-        verirficarListaVazia();
-
-        for (Relogio tempRelogio : listaRelogios) {
-
-            if (tempRelogio.getCodigo() == codigo) {
-
-                return tempRelogio;
-            }
-        }
-
-        throw new Exception("\nRelógio com o código " + codigo + " não localizado");
-
     }
 
     private static void atualizarArquivo() throws IOException {
-
         try (FileWriter fWriter = new FileWriter(ARQUIVO);
-                BufferedWriter bWriter = new BufferedWriter(fWriter)) {
+             BufferedWriter bWriter = new BufferedWriter(fWriter)) {
 
-            for (Relogio tempRelogio : listaRelogios) {
-
-                bWriter.write(tempRelogio.toString() + "\n");
+            for (Aluno aluno : listaAlunos) {
+                bWriter.write(aluno.getNome() + ";" +
+                        aluno.getMatricula() + ";" +
+                        aluno.getIdade() + ";" +
+                        aluno.getSexo() + ";" +
+                        aluno.getStatusDeSangue() + ";" +
+                        aluno.getCasa().getClass().getSimpleName() + "\n");
             }
-
         }
-
     }
 
-    public static void apagarRelogio(int codigo) throws Exception {
-
-        verirficarListaVazia();
-
-        boolean encontrou = false;
-
-        for (Relogio tempRelogio : listaRelogios) {
-
-            if (tempRelogio.getCodigo() == codigo) {
-
-                listaRelogios.remove(tempRelogio);
-                encontrou = true;
+    public static void apagarAluno(String matricula) throws Exception {
+        boolean encontrado = false;
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula().equals(matricula)) {
+                listaAlunos.remove(aluno);
+                encontrado = true;
                 break;
             }
         }
 
-        if (!encontrou) {
-
-            // Lança uma exceção neste caso
-            throw new Exception("\nRelógio com o código " + codigo + " não localizado");
+        if (!encontrado) {
+            throw new Exception("Aluno com a matrícula " + matricula + " não encontrado.");
         }
 
         atualizarArquivo();
-
     }
 
-    public static void atualizarRelogio(Relogio relogio) throws Exception {
-
-        verirficarListaVazia();
-
-        for (Relogio tempRelogio : listaRelogios) {
-
-            if (tempRelogio.getCodigo() == relogio.getCodigo()) {
-
-                tempRelogio = relogio;
+    public static void criarArquivoSeNaoExistir() {
+        try {
+            File arquivo = new File(ARQUIVO);
+            if (!arquivo.exists()) {
+                arquivo.createNewFile();
             }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
 
+    // Método para buscar um aluno por matrícula
+    protected static Aluno buscarAluno(String matricula) throws Exception {
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula().equals(matricula)) {
+                return aluno;
+            }
+        }
+        throw new Exception("Aluno com a matrícula " + matricula + " não encontrado.");
+    }
+
+    // Método para atualizar um aluno
+    public static void atualizarAluno(Aluno alunoAtualizado) throws IOException {
+        boolean encontrado = false;
+        for (int i = 0; i < listaAlunos.size(); i++) {
+            Aluno aluno = listaAlunos.get(i);
+            if (aluno.getMatricula().equals(alunoAtualizado.getMatricula())) {
+                listaAlunos.set(i, alunoAtualizado);
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            throw new IOException("Aluno não encontrado para atualização.");
         }
 
         atualizarArquivo();
-
     }
-
-    public static void apagarTodos() throws IOException, Exception {
-
-        verirficarListaVazia();
-
-        try (FileWriter fWriter = new FileWriter(ARQUIVO);
-                BufferedWriter bWriter = new BufferedWriter(fWriter)) {
-
-            bWriter.write("");
-            listaRelogios.clear();
-        }
-
-        atualizarArquivo();
-
-    }
-
 }
+

@@ -37,4 +37,17 @@ public class Cadastro {
     public static List<Aluno> getListaAlunos() {
         return alunos;
     }
+
+    public static void atualizarAluno(Aluno tempAluno) {
+        Aluno aluno = buscarPorMatricula(tempAluno.getMatricula());
+        if (aluno != null) {
+            aluno.setNome(tempAluno.getNome());
+            aluno.setIdade(tempAluno.getIdade());
+            aluno.setSexo(tempAluno.getSexo());
+            aluno.setStatusDeSangue(tempAluno.getStatusDeSangue());
+            System.out.println("Aluno atualizado com sucesso!");
+        } else {
+            System.out.println("Aluno não encontrado.");
+        }
+    }
 }
