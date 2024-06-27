@@ -1,6 +1,7 @@
 # Sistema do Chapeu Seletor de Hogwarts
 
-Este é um sistema em Java para cadastrar alunos e determinar a qual casa de Hogwarts eles pertencem com base em suas respostas a um questionário...
+Este é um sistema desenvolvido em Java que simula o famoso Chapéu Seletor de Hogwarts. O sistema permite o cadastro de alunos e determina a qual casa de Hogwarts (Grifinória, Sonserina, Corvinal ou Lufa-Lufa) eles pertencem com base nas suas respostas de 5 perguntas objetivas. Através deste processo, os alunos serão designados às casas que melhor correspondem às suas características e valores.
+
 
 ## Funcionalidades
 
